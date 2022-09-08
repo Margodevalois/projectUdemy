@@ -10,14 +10,25 @@ console.log( 5 === 5 && 3 > 1 || 5);//true
 
 //Выполняется ли условие? - done
 
-const hamburger = 3;
-const fries = 3;
-const cola = 0;
-const nuggets = 2;
+// const hamburger = 3;
+// const fries = 3;
+// const cola = 0;
+// const nuggets = 2;
  
-if (hamburger === 3 && cola || fries === 3 && nuggets) {
-   console.log('Done!');
-}
+// if (hamburger === 3 && cola || fries === 3 && nuggets) {
+//    console.log('Done!');
+// }
+
+//Выполняется ли условие? - done
+
+// let hamburger;
+// const fries = NaN;
+// const cola = 0;
+// const nuggets = 2;
+ 
+// if (hamburger || cola || fries === 3 || nuggets) {
+//    console.log('Done!');
+// }
 
 //Выполняется ли условие? - done
 
@@ -26,6 +37,6 @@ const fries = NaN;
 const cola = 0;
 const nuggets = 2;
  
-if (hamburger || cola || fries === 3 || nuggets) {
+if (hamburger && cola || fries === 3 && nuggets) {
    console.log('Done!');
 }
