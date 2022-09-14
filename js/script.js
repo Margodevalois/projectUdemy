@@ -1,6 +1,9 @@
 // 1) У нас уже есть рабочее приложение, состоящее из отдельных функций. Представьте, что
 // перед вами стоит задача переписать его так, чтобы все функции стали методами объекта personalMovieDB
 // Такое случается в реальных продуктах при смене технологий или подхода к архитектуре программы
+// 2) Создать метод toggleVisibleMyDB, который при вызове будет проверять свойство privat. Если оно false - он
+// переключает его в true, если true - переключает в false. Протестировать вместе с showMyDB.
+
 'use strict';
 
 const personalMovieDB = {
@@ -47,6 +50,13 @@ const personalMovieDB = {
     writeYourGenres: function(){
         for (let i = 1; i <= 3; i++) { 
             personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`, ''); 
+        }
+    },
+    toggleVisibleMyDB: function(){
+        if (personalMovieDB.privat) {
+            personalMovieDB.privat = false;
+        } else {
+            personalMovieDB.privat = true;
         }
     }
 };
