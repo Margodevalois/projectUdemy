@@ -104,3 +104,143 @@ function findMaxNumber(a, b, c, d) {
     return Math.max(a, b, c, d);}
 }
 findMaxNumber();
+
+//на числа Фибоначчи
+// Создайте функцию, которая будет принимать в себя один аргумент-целое положительное число. Она должна возвращать строку, в которой будут через пробел выведены числа Фибоначчи. Причем, их количество должно быть равно переданному аргументу.
+// Если переданный аргумент не число - вернуть пустую строку. Решать без применения рекурсии.
+function fib(num) {
+    if (typeof(num) !== 'number' || num <= 0 || !Number.isInteger(num)){
+        return '';
+    }
+        let result = '';
+        let first = 0;
+        let second = 1;
+    
+        for (let i = 0; i < num; i++) {
+            if (i + 1 === num) {
+                result += `${first}`;
+            } else {
+                result += `${first} `;
+            }
+            let third = first + second;
+            first = second;
+            second = third;
+        }
+        return result;
+    }
+fib(4);
+
+
+//Напишите функцию showExperience, которая будет принимать в себя объект со всеми данными и возвращать строку с опытом.
+//Создайте метод showAgeAndLangs внутри объекта personalPlanPeter. При его вызове метод будет принимать в себя объект и возвращать строку в нужном виде.
+
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+    showAgeAndLangs: function(plan) {
+        const {age} = plan;
+        const {languages} = plan.skills;
+        let str = `Мне ${age} и я владею языками: `;
+
+        languages.forEach(function(lang) {
+            str += `${lang.toUpperCase()} `;
+        });
+
+        return str;
+    }
+};
+
+function showExperience(plan) {
+    const {exp} = plan.skills;
+    return exp;
+}
+showExperience(personalPlanPeter);
+
+// Напишите функцию showProgrammingLangs, которая будет принимать в себя объект со всеми данными и возвращать строку в нужном виде.
+
+function showProgrammingLangs(plan) {
+    let str = '';
+    const {programmingLangs} = plan.skills;
+    for (let key in programmingLangs) {
+        str += `Язык ${key} изучен на ${programmingLangs[key]}\n`;
+    }
+
+    return str;
+}
+showProgrammingLangs(personalPlanPeter);
+
+
+
+// 1) Напишите функцию showFamily, которая будет принимать в себя массив строк и возвращать сообщение в нужном формате.
+// showFamily(family)  => 'Семья состоит из: Peter Ann Alex Linda'
+
+const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+
+function showFamily(arr) {
+    let str = '';
+    arr.length === 0 ? str = 'Семья пуста' : str = 'Семья состоит из: ';
+    arr.forEach(member => {
+        str += `${member} `
+    });
+    return str;
+}
+
+showFamily(family);
+//2) напишите функцию standardizeStrings, которая будет принимать в себя массив строк и будет выводить в консоль эти строки в нижнем регистре.
+showFamily(family);
+
+const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+function standardizeStrings(arr) {
+    arr.forEach(city => {
+        console.log(city.toLowerCase())
+    })
+}
+
+standardizeStrings(favoriteCities);
+
+//Задача с собеседований. Напишите функцию reverse, которая принимает в себя строку и возвращает эту строку в обратном порядке
+const someString = 'This is some strange string';
+
+function reverse(str) {
+    if (typeof (str) !== 'string') {
+        return 'Ошибка!';
+    }
+return str.split('').reverse().join('');
+}
+console.log(reverse(someString));
+
+// Вам нужно создать главную функцию банкомата availableCurr, 
+// которая принимает два аргумента: первый - это массив со всеми доступными 
+// валютами из двух банков сразу (сейчас представим, что они не могут 
+//     повторяться), второй - необязательный аргумент, который указывает 
+//     ту валюту, которая сейчас закончилась в банкомате. Если массив в 
+//     первом аргументе пустой - то функция возвращает строку 'Нет доступных 
+//     валют'. Функция возвращает строку в нужном виде.
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+
+function availableCurr(arr, missingCurr) {
+    let str = '';
+    if (arr.length === 0) {
+        return str += 'Нет доступных валют';
+    } else {
+        str = 'Доступные валюты:\n';
+    }
+    arr.forEach(function(curr, i) {
+        if (curr !== missingCurr) {
+            str += `${curr}\n`;
+        }
+    });
+    return str;
+}
+availableCurr([...baseCurrencies, ...additionalCurrencies], 'CNY')
