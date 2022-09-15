@@ -305,3 +305,43 @@ console.log(isBudgetEnough(shoppingMallData));
 //     }
 // }
 // isBudgetEnough(shoppingMallData);
+
+//У вас есть список учеников, которые хотят поиграть в игру. 
+// Но команд может быть только 3 по 3 человека. Напишите функцию sortStudentsByGroups, которая принимает в себя массив строк.
+// Внутри она сначала сортирует имена по алфавиту. Затем распределяет учеников по 3 человека в 3 группы по алфавитному порядку. Эти группы должны быть массивами. Как итог, функция возвращает новый массив с тремя командами и строкой как 4й элемент.
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam'];
+
+function sortStudentsByGroups(arr) {
+    arr.sort();
+    const a = [], b = [], c = [], rest = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (i < 3) {
+            a.push(arr[i]);
+        } else if (i < 6) {
+            b.push(arr[i]);
+        } else if (i < 9) {
+            c.push(arr[i]);
+        } else {
+            rest.push(arr[i]);
+        }
+    }
+    return [a,b,c, `Оставшиеся студенты: ${rest.length === 0 ? '-' : rest.join(', ')}`];
+}
+console.log(sortStudentsByGroups(students));
+
+
+
+//и запинается на лжи, или - на правде
+let x = 5; alert( x++ ); // 5
+console.log([ ] + false - null + true); // Nan
+let y = 1; let x = y = 2; alert(x); // 2
+console.log([ ] + 1 + 2); // 12 
+alert( "1"[0] ); // 1, 0 - index
+console.log(2 && 1 && null && 0 && undefined); // null - первое ложное
+!!( a && b ) === (a && b); // не равны
+alert( null || 2 && 3 || 4 ); //
+a = [1, 2, 3]; b = [1, 2, 3]; //Правда ли что a == b; false
+alert( +"Infinity" ); //Infinity/ type - number 
+"Ёжик" & "яблоко"; //false
+0 || "" || 2 || undefined || true || falsе; //2
